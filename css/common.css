@@ -7,9 +7,9 @@ body {
     color: white;
 }
 
+/* Navigation Bar */
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
     background-color: rgba(0, 0, 0, 0.8);
@@ -19,24 +19,38 @@ body {
     z-index: 1000;
 }
 
+/* Title and Navigation Links Together */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Spacing between title and menu */
+}
+
+/* Title */
 .logo {
     font-size: 24px;
     font-weight: bold;
+    white-space: nowrap; /* Ensures "Battleship" doesn't break */
 }
 
+/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
+    gap: 20px; /* Prevents text from being cut off */
+    padding: 0;
+    margin: 0;
 }
 
 .nav-links li {
-    margin: 0 15px;
+    white-space: nowrap; /* Prevents word break */
 }
 
 .nav-links a {
     text-decoration: none;
     color: white;
     font-size: 18px;
+    padding: 10px 15px;
     transition: color 0.3s;
 }
 
@@ -44,11 +58,41 @@ body {
     color: #00bcd4;
 }
 
+/* Footer */
+.main-content {
+    flex: 1; 
+}
+
 footer {
     text-align: center;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.8);
-    position: absolute;
-    bottom: 0;
     width: 100%;
+}
+
+/* Mobile Responsive Navigation */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        padding: 8px 10px;
+    }
 }
