@@ -1,0 +1,54 @@
+/* Common Pattern */
+body {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a0f1e;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links .active {
+    color: #00bcd4;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

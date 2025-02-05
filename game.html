@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship - Game </title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h1 class="logo">Battleship</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Main Page</a></li>
+            <li><a href="game.html" class="active">Game</a></li>
+            <li><a href="rules.html">Rules</a></li>
+            <li><a href="scores.html">Scores</a></li>
+        </ul>
+    </nav>
+
+    <!-- Game Area -->
+    <div class="game-container">
+        <h2>Battleship</h2>
+        <p class="timer">Time elapsed: <span>05:32</span></p>
+
+        <div class="boards">
+            <div class="board">
+                <h3>Player Board</h3>
+                <div class="grid player-board">
+                </div>
+            </div>
+
+            <div class="board">
+                <h3>Enemy Board</h3>
+                <div class="grid enemy-board">
+                </div>
+            </div>
+        </div>
+
+        <button class="restart-btn">Restart</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Battleship. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function createBoard(gridClass, positions) {
+            const grid = document.querySelector(gridClass);
+            for (let i = 0; i < 100; i++) {
+                let cell = document.createElement("div");
+                cell.classList.add("cell");
+
+                if (positions.hits.includes(i)) {
+                    cell.classList.add("hit");
+                    cell.textContent = "✔️";
+                } else if (positions.misses.includes(i)) {
+                    cell.classList.add("miss");
+                    cell.textContent = "❌";
+                } else if (positions.ships.includes(i)) {
+                    cell.classList.add("ship");
+                    const dot = document.createElement("span");
+                    dot.classList.add("black-dot");
+                    dot.textContent = "⚫";  
+                    cell.appendChild(dot);
+                }
+
+                grid.appendChild(cell);
+            }
+        }
+
+        const playerPositions = {
+            ships: [1, 11, 21, 31, 41, 50, 60, 70, 80, 90], 
+            misses: [44, 67], 
+            hits: [23]  
+        };
+
+        const enemyPositions = {
+            ships: [],
+            misses: [9, 29, 49],  
+            hits: [5, 25, 45, 15] 
+        };
+
+        createBoard(".player-board", playerPositions);
+        createBoard(".enemy-board", enemyPositions);
+    </script>
+
+</body>
+</html>
